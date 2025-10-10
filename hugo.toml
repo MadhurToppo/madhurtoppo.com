@@ -1,0 +1,84 @@
+baseURL = 'https://madhurtoppo.com/'
+languageCode = 'en-us'
+title = 'Madhur Toppo'
+theme = 'hugo-PaperMod'
+
+[params]
+  # Profile mode configuration
+  [params.profileMode]
+    enabled = true
+    title = "Madhur Toppo"
+    subtitle = "Senior Software Engineer with 10+ years of experience designing scalable cloud-native enterprise systems, backend and full-stack for global companies like Citibank, Caterpillar, Kroger, K15t and Digital AI. Proven leader in microservices and enterprise applications, with expertise integrating AI using Spring AI, RAG, and MCP for secure LLM access. Proficient in Java, JavaScript, Spring Boot, Vue.js, Node.js and cloud platforms."
+    imageUrl = "/home/me.jpg"
+    imageTitle = "profile image"
+    imageWidth = 220
+    imageHeight = 220
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/posts"
+
+    [[params.profileMode.buttons]]
+      name = "Search"
+      url = "/search"
+
+  # Social icons
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:madhur.toppo@gmail.com"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/madhurtoppo"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/madhurtoppo"
+
+  [[params.socialIcons]]
+    name = "cv"
+    url = "https://drive.google.com/file/d/1-piii_DmqT6x2k_Hmyzog9LZD1habNzD/view"
+
+  # Enable search
+  fuseOpts = true
+
+  # Other settings
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search"
+    weight = 30
+
+# Outputs for search functionality
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

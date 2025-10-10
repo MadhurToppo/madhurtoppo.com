@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog Posts on Madhur Toppo</title>
+    <link>https://madhurtoppo.com/posts/</link>
+    <description>Recent content in Blog Posts on Madhur Toppo</description>
+    <generator>Hugo -- 0.151.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Oct 2024 10:00:00 +0000</lastBuildDate>
+    <atom:link href="https://madhurtoppo.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to My Blog</title>
+      <link>https://madhurtoppo.com/posts/welcome/</link>
+      <pubDate>Fri, 11 Oct 2024 10:00:00 +0000</pubDate>
+      <guid>https://madhurtoppo.com/posts/welcome/</guid>
+      <description>A welcome post introducing my blog and what you can expect to find here.</description>
+    </item>
+  </channel>
+</rss>
