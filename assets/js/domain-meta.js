@@ -2,89 +2,76 @@
 (function() {
   document.addEventListener("DOMContentLoaded", function() {
     var path = window.location.pathname;
-    var domain = window.location.origin;
+    var currentDomain = window.location.origin;
+    var domain = 'madhurtoppo.com';
+    var url = 'https://' + domain;
 
-    // Detect local development environment and adjust base path
     var basePath = '';
-    if (domain.includes('localhost') || domain.includes('127.0.0.1')) {
-      // Check if we're in a subdirectory (like /madhurtoppo.github.io/)
+    if (currentDomain.includes('localhost') || currentDomain.includes('127.0.0.1')) {
       var pathParts = path.split('/');
-      if (pathParts.length > 1 && pathParts[1] === 'madhurtoppo.github.io') {
-        basePath = '/madhurtoppo.github.io';
+      if (pathParts.length > 1 && pathParts[1] === domain) {
+        basePath = '/' + domain;
       }
     }
 
-    // Function to get the correct URL for the environment
     function getCorrectUrl(relativePath) {
       if (relativePath === '/') {
-        // For local development with subdirectory, use clean URL
         if (basePath) {
-          return domain + basePath + '/';
+          return currentDomain + basePath + '/';
         }
-        // For local development without subdirectory, use clean URL
-        if (domain.includes('localhost') || domain.includes('127.0.0.1')) {
-          return domain + '/';
+        if (currentDomain.includes('localhost') || currentDomain.includes('127.0.0.1')) {
+          return currentDomain + '/';
         }
-        // For production, use clean URLs
-        return domain + '/';
+        return currentDomain + '/';
       }
 
-      // Handle directory-based URLs - use clean URLs for all environments
-      // The server should automatically serve index.html files from directories
-      return domain + basePath + relativePath + '/';
+      return currentDomain + basePath + relativePath;
     }
 
-    // Update canonical URL
     var canonical = document.querySelector("link[rel='canonical']");
-    if (canonical) canonical.href = domain + path;
+    if (canonical) canonical.href = currentDomain + basePath + path;
 
-    // Update Open Graph URL
     var ogUrl = document.querySelector("meta[property='og:url']");
-    if (ogUrl) ogUrl.content = domain + path;
+    if (ogUrl) ogUrl.content = currentDomain + basePath + path;
 
     // Update Twitter URL
     var twitterUrl = document.querySelector("meta[name='twitter:url']");
-    if (twitterUrl) twitterUrl.content = domain + path;
+    if (twitterUrl) twitterUrl.content = currentDomain + basePath + path;
 
-    // Update RSS feed
     var rss = document.querySelector("link[type='application/rss+xml']");
     if (rss) {
       var rssPath = path.endsWith('/') ? path + 'index.xml' : path.replace(/\.html$/, '.xml');
-      rss.href = domain + rssPath;
+      rss.href = currentDomain + basePath + rssPath;
     }
 
-    // Update JSON feed
     var json = document.querySelector("link[type='application/json']");
     if (json) {
       var jsonPath = path.endsWith('/') ? path + 'index.json' : path.replace(/\.html$/, '.json');
-      json.href = domain + jsonPath;
+      json.href = currentDomain + basePath + jsonPath;
     }
 
-    // Update favicon and icons (remove hardcoded domain if present)
     var iconLinks = document.querySelectorAll("link[rel='icon'], link[rel='apple-touch-icon'], link[rel='mask-icon']");
     iconLinks.forEach(function(link) {
       var href = link.getAttribute('href');
-      if (href && href.startsWith('https://madhurtoppo.github.io')) {
-        link.href = href.replace('https://madhurtoppo.github.io', basePath);
+      if (href && href.startsWith(url)) {
+        link.href = href.replace(url, currentDomain + basePath);
       }
     });
 
-    // Update all internal navigation links - this is the key fix
     document.querySelectorAll('a').forEach(function(link) {
       var href = link.getAttribute('href');
-      if (href && href.startsWith('https://madhurtoppo.github.io')) {
-        link.href = href.replace('https://madhurtoppo.github.io', basePath);
+      if (href && href.startsWith(url)) {
+        link.href = href.replace(url, currentDomain + basePath);
       } else if (href && href.startsWith('/') && !href.startsWith('//')) {
         // Fix relative paths for all environments
         link.href = getCorrectUrl(href);
       }
     });
 
-    // Update all images with hardcoded domain
     document.querySelectorAll('img').forEach(function(img) {
       var src = img.getAttribute('src');
-      if (src && src.startsWith('https://madhurtoppo.github.io')) {
-        img.src = src.replace('https://madhurtoppo.github.io', basePath);
+      if (src && src.startsWith(url)) {
+        img.src = src.replace(url, currentDomain + basePath);
       }
     });
 
@@ -95,9 +82,9 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Madhur Toppo",
-        "url": domain + basePath,
+        "url": currentDomain + basePath,
         "description": "",
-        "thumbnailUrl": domain + basePath + "/favicon.ico",
+        "thumbnailUrl": currentDomain + basePath + "/favicon.ico",
         "sameAs": [
           "mailto:madhur.toppo@gmail.com",
           "https://www.linkedin.com/in/madhurtoppo",
@@ -108,19 +95,17 @@
       jsonld.textContent = JSON.stringify(org, null, 2);
     }
 
-    // Handle redirect pages
     var redirectMeta = document.querySelector("meta[http-equiv='refresh']");
     if (redirectMeta) {
       var content = redirectMeta.getAttribute('content');
-      if (content && content.includes('https://madhurtoppo.github.io')) {
-        redirectMeta.setAttribute('content', content.replace('https://madhurtoppo.github.io', domain + basePath));
+      if (content && content.includes(url)) {
+        redirectMeta.setAttribute('content', content.replace(url, currentDomain + basePath));
       }
     }
 
-    // Update redirect link if present
     var redirectLink = document.querySelector("link[rel='canonical']");
-    if (redirectLink && redirectLink.href.includes('madhurtoppo.github.io')) {
-      redirectLink.href = redirectLink.href.replace('https://madhurtoppo.github.io', domain + basePath);
+    if (redirectLink && redirectLink.href.includes(domain)) {
+      redirectLink.href = redirectLink.href.replace(url, currentDomain + basePath);
     }
   });
 })();
