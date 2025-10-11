@@ -4,6 +4,9 @@ title = 'Madhur Toppo'
 theme = 'hugo-PaperMod'
 
 [params]
+  # Main sections for home page and navigation
+  mainSections = ["posts"]
+
   # Profile mode configuration
   [params.profileMode]
     enabled = true
@@ -39,8 +42,15 @@ theme = 'hugo-PaperMod'
     name = "cv"
     url = "https://drive.google.com/file/d/1-piii_DmqT6x2k_Hmyzog9LZD1habNzD/view"
 
-  # Enable search
-  fuseOpts = true
+  # Search configuration - fix fuseOpts
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
 
   # Other settings
   ShowReadingTime = true
@@ -58,6 +68,10 @@ theme = 'hugo-PaperMod'
   hideSummary = false
   showtoc = false
   tocopen = false
+
+  # Fix navigation issues
+  env = "production"
+  defaultTheme = "auto"
 
 # Menu configuration
 [menu]
@@ -82,3 +96,4 @@ theme = 'hugo-PaperMod'
 # Outputs for search functionality
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
