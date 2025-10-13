@@ -23,7 +23,7 @@ public class HelloWorld {
 }
 ```
   Compilation Command:
-```java
+```bash
 javac HelloWorld.java
 ```
    Output: `HelloWorld.class` containing platform-independent bytecode This
@@ -36,7 +36,7 @@ javac HelloWorld.java
 	2. Runtime Data Areas
 	3. Execution Engine
    
-3. **JVM Class Loader Subsystem**
+3. **JVM Class Loader Subsystem:**
    The Class Loader is responsible for dynamically loading Java classes into
    memory during runtime. It works in three main steps:
    
@@ -45,30 +45,29 @@ javac HelloWorld.java
 	3. Initialization: Executes static initializers (`static { }` blocks) and assigns static variable values.
    
    The JVM uses a delegation hierarchy:
-	1. Bootstrap Class Loader – Loads core Java classes (`java.lang.*, java.util.*`)
-	2. Extension Class Loader – Loads classes from the extension directories
-	3. Application Class Loader – Loads classes from the user’s classpath	
+	1. **Bootstrap Class Loader** – Loads core Java classes (`java.lang.*, java.util.*`)
+	2. **Extension Class Loader** – Loads classes from the extension directories
+	3. **Application Class Loader** – Loads classes from the user’s classpath	
    
-4. **JVM Runtime Data Areas**
+4. **JVM Runtime Data Areas:**
    Once classes are loaded, the JVM allocates memory in several runtime areas:
    
-   Method Area: Stores class structures, method data, and runtime constant pool.
-   Heap: Allocates memory for objects (managed by Garbage Collector). Java
-   Stack: Holds local variables and partial results for each thread. PC
-   Register: Keeps track of the current instruction being executed. Native
-   Method Stack: Supports native (non-Java) code execution through JNI.
+   **Method Area:** Stores class structures, method data, and runtime constant pool.
+   **Heap:** Allocates memory for objects (managed by Garbage Collector). **Java Stack:** Holds local variables and partial results for each thread. **PC
+   Register:** Keeps track of the current instruction being executed. **Native
+   Method Stack:** Supports native (non-Java) code execution through JNI.
 
-5. **JVM Execution Engine**
+5. **JVM Execution Engine:**
    The Execution Engine is where bytecode becomes actual machine instructions.
    It has three major components: 
-	1. Interpreter: Reads and executes bytecode line by line. JIT (Just-In-Time) 
-	2. Compiler: Converts frequently executed bytecode (“hot code”) into native
+	1. **Interpreter:** Reads and executes bytecode line by line. JIT (Just-In-Time) 
+	2. **Compiler:** Converts frequently executed bytecode (“hot code”) into native
 		machine code to boost performance. 
-	3. Garbage Collector (GC): Automatically manages memory, freeing up unused
+	3. **Garbage Collector (GC):** Automatically manages memory, freeing up unused
 		objects from the heap. Together, the Execution Engine and JIT compiler make the
 		JVM fast and adaptive, optimizing execution during runtime.
    
-6. **The Complete Flow**
+6. **The Complete Flow:**
 ```scss
 Source Code (.java)
 	↓
@@ -85,7 +84,7 @@ Execution Engine (Interpreter + JIT)
 Native Machine Code → Execution
 ```
    
-7. **Conclusion**
+7. **Conclusion:**
    The JVM is far more than a runtime—it’s a sophisticated platform that
    abstracts hardware details, manages memory automatically, and optimizes
    performance on the fly. By transforming source code into bytecode and
