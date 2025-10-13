@@ -21,7 +21,7 @@
       <pubDate>Mon, 13 Oct 2025 11:32:09 +0200</pubDate>
       <guid>https://madhurtoppo.com/posts/java/jvm-deep-dive/</guid>
       <description>&lt;h2 id=&#34;a-deep-dive-into-the-java-virtual-machine-jvm-from-source-code-toexecution&#34;&gt;A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;jvm-deep-dive.png&#34; loading=&#34;lazy&#34; src=&#34;jvm-deep-dive.png&#34;&gt;
+&lt;p&gt;&lt;img alt=&#34;jvm-deep-dive.png&#34; loading=&#34;lazy&#34; src=&#34;https://madhurtoppo.com/jvm-deep-dive.png&#34;&gt;
 The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
 It’s an abstract computing machine that enables Java applications to run
 anywhere—without needing platform-specific recompilation. But how does Java code

@@ -4,7 +4,7 @@ date: 2025-10-13T11:32:09+02:00
 draft: false
 ---
 ## A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution
-![jvm-deep-dive.png](jvm-deep-dive.png)
+![jvm-deep-dive.png](/jvm-deep-dive.png)
 The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
 It’s an abstract computing machine that enables Java applications to run
 anywhere—without needing platform-specific recompilation. But how does Java code
