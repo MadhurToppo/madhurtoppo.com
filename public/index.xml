@@ -6,7 +6,7 @@
     <description>Recent content on Madhur Toppo</description>
     <generator>Hugo -- 0.151.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Oct 2024 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 11:32:09 +0200</lastBuildDate>
     <atom:link href="https://madhurtoppo.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to My Blog</title>
@@ -14,6 +14,30 @@
       <pubDate>Fri, 11 Oct 2024 10:00:00 +0000</pubDate>
       <guid>https://madhurtoppo.com/posts/welcome/</guid>
       <description>A welcome post introducing my blog and what you can expect to find here.</description>
+    </item>
+    <item>
+      <title>JVM Deep Dive</title>
+      <link>https://madhurtoppo.com/posts/java/jvm-deep-dive/</link>
+      <pubDate>Mon, 13 Oct 2025 11:32:09 +0200</pubDate>
+      <guid>https://madhurtoppo.com/posts/java/jvm-deep-dive/</guid>
+      <description>&lt;h2 id=&#34;a-deep-dive-into-the-java-virtual-machine-jvm-from-source-code-toexecution&#34;&gt;A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;jvm-deep-dive.png&#34; loading=&#34;lazy&#34; src=&#34;jvm-deep-dive.png&#34;&gt;
+The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
+It’s an abstract computing machine that enables Java applications to run
+anywhere—without needing platform-specific recompilation. But how does Java code
+actually go from .java files to running processes? Let’s break down the full
+lifecycle.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Source Code → Bytecode:&lt;/strong&gt; Every Java program begins as source code written
+in .java files. These files are compiled by the Java Compiler (javac) into
+bytecode, stored in .class files. Source Code Example:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;HelloWorld&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, JVM!&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Compilation Command:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

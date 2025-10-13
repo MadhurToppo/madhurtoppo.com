@@ -5,6 +5,7 @@ draft: false
 tags: ["welcome", "introduction"]
 categories: ["general"]
 description: "A welcome post introducing my blog and what you can expect to find here."
+weight: 1
 ---
 # What You'll Find Here
 

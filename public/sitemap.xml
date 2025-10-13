@@ -2,8 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://madhurtoppo.com/posts/</loc>
+    <loc>https://madhurtoppo.com/posts/welcome/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/posts/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/posts/java/jvm-deep-dive/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/categories/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
@@ -14,16 +23,10 @@
     <loc>https://madhurtoppo.com/tags/introduction/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://madhurtoppo.com/</loc>
-    <lastmod>2024-10-11T10:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://madhurtoppo.com/tags/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/tags/welcome/</loc>
-    <lastmod>2024-10-11T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://madhurtoppo.com/posts/welcome/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/search/</loc>
