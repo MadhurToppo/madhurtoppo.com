@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Observability and Monitoring | Madhur Toppo</title>
+<meta name="keywords" content="">
+<meta name="description" content="Observability and Monitoring in Modern Spring Boot Applications
+
+Modern distributed systems are complex — dozens of services, asynchronous
+communication, and dynamic scaling make understanding what’s happening inside
+the system harder than ever. That’s where Observability and Monitoring
+come in.
+While Monitoring tells us that something is wrong, Observability helps
+us understand why it’s wrong. In a typical Spring Boot microservice setup,
+observability involves 3 core pillars:
+🧭 1. Metrics — Quantifying System Health
+Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.">
+<meta name="author" content="">
+<link rel="canonical" href="https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://madhurtoppo.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://madhurtoppo.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://madhurtoppo.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://madhurtoppo.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://madhurtoppo.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/">
+  <meta property="og:site_name" content="Madhur Toppo">
+  <meta property="og:title" content="Observability and Monitoring">
+  <meta property="og:description" content="Observability and Monitoring in Modern Spring Boot Applications Modern distributed systems are complex — dozens of services, asynchronous communication, and dynamic scaling make understanding what’s happening inside the system harder than ever. That’s where Observability and Monitoring come in.
+While Monitoring tells us that something is wrong, Observability helps us understand why it’s wrong. In a typical Spring Boot microservice setup, observability involves 3 core pillars:
+🧭 1. Metrics — Quantifying System Health Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-17T16:24:36+02:00">
+    <meta property="article:modified_time" content="2025-10-17T16:24:36+02:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Observability and Monitoring">
+<meta name="twitter:description" content="Observability and Monitoring in Modern Spring Boot Applications
+
+Modern distributed systems are complex — dozens of services, asynchronous
+communication, and dynamic scaling make understanding what’s happening inside
+the system harder than ever. That’s where Observability and Monitoring
+come in.
+While Monitoring tells us that something is wrong, Observability helps
+us understand why it’s wrong. In a typical Spring Boot microservice setup,
+observability involves 3 core pillars:
+🧭 1. Metrics — Quantifying System Health
+Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog Posts",
+      "item": "https://madhurtoppo.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Observability and Monitoring",
+      "item": "https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Observability and Monitoring",
+  "name": "Observability and Monitoring",
+  "description": "Observability and Monitoring in Modern Spring Boot Applications Modern distributed systems are complex — dozens of services, asynchronous communication, and dynamic scaling make understanding what’s happening inside the system harder than ever. That’s where Observability and Monitoring come in.\nWhile Monitoring tells us that something is wrong, Observability helps us understand why it’s wrong. In a typical Spring Boot microservice setup, observability involves 3 core pillars:\n🧭 1. Metrics — Quantifying System Health Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Observability and Monitoring in Modern Spring Boot Applications Modern distributed systems are complex — dozens of services, asynchronous communication, and dynamic scaling make understanding what’s happening inside the system harder than ever. That’s where Observability and Monitoring come in.\nWhile Monitoring tells us that something is wrong, Observability helps us understand why it’s wrong. In a typical Spring Boot microservice setup, observability involves 3 core pillars:\n🧭 1. Metrics — Quantifying System Health Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.\nIn a Spring Boot ecosystem, we can easily enable metrics using Micrometer:\nio.micrometer micrometer-registry-prometheus Once added, the application automatically exposes metrics at the /actuator/prometheus endpoint.\nPrometheus regularly scrapes these metrics and stores them in its time-series database. From there, Grafana connects to Prometheus to visualize dashboards and create alerts.\n✅ Metrics Pipeline Summary:\nSpring Boot (Micrometer) → /actuator/prometheus → Prometheus → Grafana This pipeline gives a real-time visibility into the application performance — we can chart request rates, error percentages, JVM memory, and more.\n🔍 2. Traces — Following a Request Across Services Metrics are great, but they don’t tell the story of one specific request. That’s where Distributed Tracing comes in.\nWith OpenTelemetry, the Spring Boot services can be automatically instrumented by adding the OpenTelemetry Java Agent or SDK.\nThis agent captures:\nHTTP client \u0026 server spans Database queries Messaging (Kafka, RabbitMQ) interactions Traces are then exported in OTLP (OpenTelemetry Protocol) format to the OpenTelemetry Collector, which forwards them to Tempo, a distributed tracing backend.\nGrafana integrates with Tempo, allowing to visualize traces and understand latency across microservices.\n✅ Tracing Pipeline Summary:\nSpring Boot (OpenTelemetry) → OTLP → OpenTelemetry Collector → Tempo → Grafana This pipeline helps answer why a request was slow — bottlenecks can be pinpointed down to individual database calls.\n🧾 3. Logs — Contextual Insights for Debugging Logs capture the raw narrative of what’s happening inside the application. When properly structured and correlated with traces, they become a powerful debugging tool.\nUsing the Loki Logback Appender, the Spring Boot apps can send logs directly to Loki:\n\u003cdependency\u003e \u003cgroupId\u003ecom.github.loki4j\u003c/groupId\u003e \u003cartifactId\u003eloki-logback-appender\u003c/artifactId\u003e \u003c/dependency\u003e Each log entry is labeled (e.g., service=order-service, level=INFO) for fast querying in Grafana. When integrated with OpenTelemetry, the logs also include traceId and spanId in the MDC — allowing them to correlate logs with traces.\n✅ Logs Pipeline Summary:\nSpring Boot (Loki Appender) → Loki → Grafana Now, a single Grafana dashboard can be used to:\nVisualize metrics trends Explore distributed traces Drill down into correlated logs 🎯 Bringing It All Together When these three pipelines work in harmony — Metrics, Traces, and Logs — a full-stack Monitoring and Observability can be achieved.\nMetrics → What’s happening? Traces → Where is it happening? Logs → Why is it happening? Together, they form a feedback loop that enables proactive monitoring, faster incident resolution, and deeper insight into the system’s behavior.\n🚀 Final Takeaway Monitoring and Observability aren’t tools — they are a mindset. They are about building systems that tell their own stories. With Spring Boot, Micrometer, OpenTelemetry, Prometheus, Loki, Tempo, and Grafana, we have all the pieces to make that story visible.\n",
+  "wordCount" : "528",
+  "inLanguage": "en",
+  "datePublished": "2025-10-17T16:24:36+02:00",
+  "dateModified": "2025-10-17T16:24:36+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Madhur Toppo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://madhurtoppo.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://madhurtoppo.com/" accesskey="h" title="Madhur Toppo (Alt + H)">Madhur Toppo</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://madhurtoppo.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/posts" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Observability and Monitoring
+    </h1>
+    <div class="post-meta"><span title='2025-10-17 16:24:36 +0200 CEST'>October 17, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="observability-and-monitoring-in-modern-spring-boot-applications">Observability and Monitoring in Modern Spring Boot Applications<a hidden class="anchor" aria-hidden="true" href="#observability-and-monitoring-in-modern-spring-boot-applications">#</a></h1>
+<p><img alt="observability.png" loading="lazy" src="observability.png"></p>
+<p>Modern distributed systems are complex — dozens of services, asynchronous
+communication, and dynamic scaling make understanding what’s happening inside
+the system harder than ever. That’s where <strong>Observability</strong> and <strong>Monitoring</strong>
+come in.</p>
+<p>While <strong>Monitoring</strong> tells us <em>that</em> something is wrong, <strong>Observability</strong> helps
+us understand <em>why</em> it’s wrong. In a typical Spring Boot microservice setup,
+observability involves 3 core pillars:</p>
+<h2 id="-1-metrics--quantifying-system-health">🧭 1. Metrics — Quantifying System Health<a hidden class="anchor" aria-hidden="true" href="#-1-metrics--quantifying-system-health">#</a></h2>
+<p>Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.</p>
+<p>In a Spring Boot ecosystem, we can easily enable metrics using <strong>Micrometer</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>io.micrometer<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>micrometer-registry-prometheus<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>Once added, the application automatically exposes metrics at the
+<code>/actuator/prometheus</code> endpoint.</p>
+<p><strong>Prometheus</strong> regularly scrapes these metrics and stores them in its
+time-series database. From there, <strong>Grafana</strong> connects to Prometheus to
+visualize dashboards and create alerts.</p>
+<p>✅ <strong>Metrics Pipeline Summary:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#f92672">Spring</span> <span style="color:#f92672">Boot</span> <span style="color:#f92672">(</span><span style="color:#f92672">Micrometer</span><span style="color:#f92672">)</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">/</span><span style="color:#f92672">actuator</span><span style="color:#f92672">/</span><span style="color:#f92672">prometheus</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Prometheus</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Grafana</span>
+</span></span></code></pre></div><p>This pipeline gives a real-time visibility into the application performance — we
+can chart request rates, error percentages, JVM memory, and more.</p>
+<h2 id="-2-traces--following-a-request-across-services">🔍 2. Traces — Following a Request Across Services<a hidden class="anchor" aria-hidden="true" href="#-2-traces--following-a-request-across-services">#</a></h2>
+<p>Metrics are great, but they don’t tell the story of <em>one</em> specific request.
+That’s where <strong>Distributed Tracing</strong> comes in.</p>
+<p>With <strong>OpenTelemetry</strong>, the Spring Boot services can be automatically
+instrumented by adding the <strong>OpenTelemetry Java Agent</strong> or SDK.</p>
+<p>This agent captures:</p>
+<ul>
+<li>HTTP client &amp; server spans</li>
+<li>Database queries</li>
+<li>Messaging (Kafka, RabbitMQ) interactions</li>
+</ul>
+<p>Traces are then exported in <strong>OTLP (OpenTelemetry Protocol)</strong> format to the
+<strong>OpenTelemetry Collector</strong>, which forwards them to <strong>Tempo</strong>, a distributed
+tracing backend.</p>
+<p><strong>Grafana</strong> integrates with Tempo, allowing to visualize traces and understand
+latency across microservices.</p>
+<p>✅ <strong>Tracing Pipeline Summary:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#f92672">Spring</span> <span style="color:#f92672">Boot</span> <span style="color:#f92672">(</span><span style="color:#f92672">OpenTelemetry</span><span style="color:#f92672">)</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">OTLP</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">OpenTelemetry</span> <span style="color:#f92672">Collector</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Tempo</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Grafana</span>
+</span></span></code></pre></div><p>This pipeline helps answer <em>why</em> a request was slow — bottlenecks can be
+pinpointed down to individual database calls.</p>
+<h2 id="-3-logs--contextual-insights-for-debugging">🧾 3. Logs — Contextual Insights for Debugging<a hidden class="anchor" aria-hidden="true" href="#-3-logs--contextual-insights-for-debugging">#</a></h2>
+<p>Logs capture the raw narrative of what’s happening inside the application. When
+properly structured and correlated with traces, they become a powerful debugging
+tool.</p>
+<p>Using the <strong>Loki Logback Appender</strong>, the Spring Boot apps can send logs directly
+to <strong>Loki</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#f92672">dependency</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#f92672">groupId</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">com</span><span style="color:#a6e22e">.github.loki4j</span><span style="color:#f92672">&lt;/</span><span style="color:#f92672">groupId</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#f92672">artifactId</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">loki-logback-appender</span><span style="color:#f92672">&lt;/</span><span style="color:#f92672">artifactId</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/</span><span style="color:#f92672">dependency</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Each log entry is labeled (e.g., <code>service=order-service</code>, <code>level=INFO</code>) for fast
+querying in Grafana. When integrated with OpenTelemetry, the logs also include
+<code>traceId</code> and <code>spanId</code> in the MDC — allowing them to correlate logs with traces.</p>
+<p>✅ <strong>Logs Pipeline Summary:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#f92672">Spring</span> <span style="color:#f92672">Boot</span> <span style="color:#f92672">(</span><span style="color:#f92672">Loki</span> <span style="color:#f92672">Appender</span><span style="color:#f92672">)</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Loki</span> <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#f92672">Grafana</span>
+</span></span></code></pre></div><p>Now, a single Grafana dashboard can be used to:</p>
+<ul>
+<li>Visualize metrics trends</li>
+<li>Explore distributed traces</li>
+<li>Drill down into correlated logs</li>
+</ul>
+<h2 id="-bringing-it-all-together">🎯 Bringing It All Together<a hidden class="anchor" aria-hidden="true" href="#-bringing-it-all-together">#</a></h2>
+<p>When these three pipelines work in harmony — <strong>Metrics</strong>, <strong>Traces</strong>, and
+<strong>Logs</strong> — a full-stack <strong>Monitoring</strong> and <strong>Observability</strong> can be achieved.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#f92672">Metrics</span>  <span style="color:#960050;background-color:#1e0010">→</span>  <span style="color:#f92672">What</span><span style="color:#960050;background-color:#1e0010">’</span><span style="color:#f92672">s</span> <span style="color:#f92672">happening</span><span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Traces</span>   <span style="color:#960050;background-color:#1e0010">→</span>  <span style="color:#f92672">Where</span> <span style="color:#f92672">is</span> <span style="color:#f92672">it</span> <span style="color:#f92672">happening</span><span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Logs</span>     <span style="color:#960050;background-color:#1e0010">→</span>  <span style="color:#f92672">Why</span> <span style="color:#f92672">is</span> <span style="color:#f92672">it</span> <span style="color:#f92672">happening</span><span style="color:#f92672">?</span>
+</span></span></code></pre></div><p>Together, they form a <strong>feedback loop</strong> that enables proactive monitoring,
+faster incident resolution, and deeper insight into the system’s behavior.</p>
+<h3 id="-final-takeaway">🚀 Final Takeaway<a hidden class="anchor" aria-hidden="true" href="#-final-takeaway">#</a></h3>
+<p>Monitoring and Observability aren’t tools — they are a mindset. They are about
+building systems that tell their own stories. With Spring Boot, Micrometer,
+OpenTelemetry, Prometheus, Loki, Tempo, and Grafana, we have all the pieces to
+make that story visible.</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://madhurtoppo.com/">Madhur Toppo</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

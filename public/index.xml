@@ -4,9 +4,9 @@
     <title>Madhur Toppo</title>
     <link>https://madhurtoppo.com/</link>
     <description>Recent content on Madhur Toppo</description>
-    <generator>Hugo -- 0.151.0</generator>
+    <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Oct 2025 11:32:09 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 17 Oct 2025 16:24:36 +0200</lastBuildDate>
     <atom:link href="https://madhurtoppo.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to My Blog</title>
@@ -14,6 +14,23 @@
       <pubDate>Fri, 11 Oct 2024 10:00:00 +0000</pubDate>
       <guid>https://madhurtoppo.com/posts/welcome/</guid>
       <description>A welcome post introducing my blog and what you can expect to find here.</description>
+    </item>
+    <item>
+      <title>Observability and Monitoring</title>
+      <link>https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/</link>
+      <pubDate>Fri, 17 Oct 2025 16:24:36 +0200</pubDate>
+      <guid>https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/</guid>
+      <description>&lt;h1 id=&#34;observability-and-monitoring-in-modern-spring-boot-applications&#34;&gt;Observability and Monitoring in Modern Spring Boot Applications&lt;/h1&gt;
+&lt;p&gt;&lt;img alt=&#34;observability.png&#34; loading=&#34;lazy&#34; src=&#34;observability.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Modern distributed systems are complex — dozens of services, asynchronous
+communication, and dynamic scaling make understanding what’s happening inside
+the system harder than ever. That’s where &lt;strong&gt;Observability&lt;/strong&gt; and &lt;strong&gt;Monitoring&lt;/strong&gt;
+come in.&lt;/p&gt;
+&lt;p&gt;While &lt;strong&gt;Monitoring&lt;/strong&gt; tells us &lt;em&gt;that&lt;/em&gt; something is wrong, &lt;strong&gt;Observability&lt;/strong&gt; helps
+us understand &lt;em&gt;why&lt;/em&gt; it’s wrong. In a typical Spring Boot microservice setup,
+observability involves 3 core pillars:&lt;/p&gt;
+&lt;h2 id=&#34;-1-metrics--quantifying-system-health&#34;&gt;🧭 1. Metrics — Quantifying System Health&lt;/h2&gt;
+&lt;p&gt;Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JVM Deep Dive</title>
