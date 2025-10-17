@@ -21,7 +21,6 @@
       <pubDate>Fri, 17 Oct 2025 16:24:36 +0200</pubDate>
       <guid>https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/</guid>
       <description>&lt;h1 id=&#34;observability-and-monitoring-in-modern-spring-boot-applications&#34;&gt;Observability and Monitoring in Modern Spring Boot Applications&lt;/h1&gt;
-&lt;p&gt;&lt;img alt=&#34;observability.png&#34; loading=&#34;lazy&#34; src=&#34;observability.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Modern distributed systems are complex — dozens of services, asynchronous
 communication, and dynamic scaling make understanding what’s happening inside
 the system harder than ever. That’s where &lt;strong&gt;Observability&lt;/strong&gt; and &lt;strong&gt;Monitoring&lt;/strong&gt;
@@ -38,8 +37,7 @@ observability involves 3 core pillars:&lt;/p&gt;
       <pubDate>Mon, 13 Oct 2025 11:32:09 +0200</pubDate>
       <guid>https://madhurtoppo.com/posts/java/jvm-deep-dive/</guid>
       <description>&lt;h2 id=&#34;a-deep-dive-into-the-java-virtual-machine-jvm-from-source-code-toexecution&#34;&gt;A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;jvm-deep-dive.png&#34; loading=&#34;lazy&#34; src=&#34;https://madhurtoppo.com/jvm-deep-dive.png&#34;&gt;
-The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
+&lt;p&gt;The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
 It’s an abstract computing machine that enables Java applications to run
 anywhere—without needing platform-specific recompilation. But how does Java code
 actually go from .java files to running processes? Let’s break down the full
