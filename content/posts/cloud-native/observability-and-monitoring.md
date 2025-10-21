@@ -3,11 +3,13 @@ title: Observability and Monitoring
 date: 2025-10-17T16:24:36+02:00
 draft: false
 cover:
-    image: "/images/observability.png" # path relative to the 'static' folder
+    image: "/images/observability.png"
     alt: "Observability Dashboard Screenshot"
     caption: "Observability dashboard in Grafana"
     relative: false
     hidden: false
+tags: ["cloud", "observability", "java", "spring"]
+categories: ["cloud-native"]
 ---
 # Observability and Monitoring in Modern Spring Boot Applications
 

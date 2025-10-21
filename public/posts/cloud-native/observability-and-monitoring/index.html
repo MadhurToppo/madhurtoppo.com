@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Observability and Monitoring | Madhur Toppo</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="cloud, observability, java, spring">
 <meta name="description" content="Observability and Monitoring in Modern Spring Boot Applications
 Modern distributed systems are complex — dozens of services, asynchronous
 communication, and dynamic scaling make understanding what’s happening inside
@@ -75,6 +75,10 @@ While Monitoring tells us that something is wrong, Observability helps us 
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-10-17T16:24:36+02:00">
     <meta property="article:modified_time" content="2025-10-17T16:24:36+02:00">
+    <meta property="article:tag" content="Cloud">
+    <meta property="article:tag" content="Observability">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Spring">
     <meta property="og:image" content="https://madhurtoppo.com/images/observability.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://madhurtoppo.com/images/observability.png">
@@ -119,7 +123,7 @@ Metrics give a numerical insights about system behavior — CPU usage, request l
   "name": "Observability and Monitoring",
   "description": "Observability and Monitoring in Modern Spring Boot Applications Modern distributed systems are complex — dozens of services, asynchronous communication, and dynamic scaling make understanding what’s happening inside the system harder than ever. That’s where Observability and Monitoring come in.\nWhile Monitoring tells us that something is wrong, Observability helps us understand why it’s wrong. In a typical Spring Boot microservice setup, observability involves 3 core pillars:\n🧭 1. Metrics — Quantifying System Health Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.\n",
   "keywords": [
-    
+    "cloud", "observability", "java", "spring"
   ],
   "articleBody": "Observability and Monitoring in Modern Spring Boot Applications Modern distributed systems are complex — dozens of services, asynchronous communication, and dynamic scaling make understanding what’s happening inside the system harder than ever. That’s where Observability and Monitoring come in.\nWhile Monitoring tells us that something is wrong, Observability helps us understand why it’s wrong. In a typical Spring Boot microservice setup, observability involves 3 core pillars:\n🧭 1. Metrics — Quantifying System Health Metrics give a numerical insights about system behavior — CPU usage, request latency, error rates, etc.\nIn a Spring Boot ecosystem, we can easily enable metrics using Micrometer:\nio.micrometer micrometer-registry-prometheus Once added, the application automatically exposes metrics at the /actuator/prometheus endpoint.\nPrometheus regularly scrapes these metrics and stores them in its time-series database. From there, Grafana connects to Prometheus to visualize dashboards and create alerts.\n✅ Metrics Pipeline Summary:\nSpring Boot (Micrometer) → /actuator/prometheus → Prometheus → Grafana This pipeline gives a real-time visibility into the application performance — we can chart request rates, error percentages, JVM memory, and more.\n🔍 2. Traces — Following a Request Across Services Metrics are great, but they don’t tell the story of one specific request. That’s where Distributed Tracing comes in.\nWith OpenTelemetry, the Spring Boot services can be automatically instrumented by adding the OpenTelemetry Java Agent or SDK.\nThis agent captures:\nHTTP client \u0026 server spans Database queries Messaging (Kafka, RabbitMQ) interactions Traces are then exported in OTLP (OpenTelemetry Protocol) format to the OpenTelemetry Collector, which forwards them to Tempo, a distributed tracing backend.\nGrafana integrates with Tempo, allowing to visualize traces and understand latency across microservices.\n✅ Tracing Pipeline Summary:\nSpring Boot (OpenTelemetry) → OTLP → OpenTelemetry Collector → Tempo → Grafana This pipeline helps answer why a request was slow — bottlenecks can be pinpointed down to individual database calls.\n🧾 3. Logs — Contextual Insights for Debugging Logs capture the raw narrative of what’s happening inside the application. When properly structured and correlated with traces, they become a powerful debugging tool.\nUsing the Loki Logback Appender, the Spring Boot apps can send logs directly to Loki:\n\u003cdependency\u003e \u003cgroupId\u003ecom.github.loki4j\u003c/groupId\u003e \u003cartifactId\u003eloki-logback-appender\u003c/artifactId\u003e \u003c/dependency\u003e Each log entry is labeled (e.g., service=order-service, level=INFO) for fast querying in Grafana. When integrated with OpenTelemetry, the logs also include traceId and spanId in the MDC — allowing them to correlate logs with traces.\n✅ Logs Pipeline Summary:\nSpring Boot (Loki Appender) → Loki → Grafana Now, a single Grafana dashboard can be used to:\nVisualize metrics trends Explore distributed traces Drill down into correlated logs 🎯 Bringing It All Together When these three pipelines work in harmony — Metrics, Traces, and Logs — a full-stack Monitoring and Observability can be achieved.\nMetrics → What’s happening? Traces → Where is it happening? Logs → Why is it happening? Together, they form a feedback loop that enables proactive monitoring, faster incident resolution, and deeper insight into the system’s behavior.\n🚀 Final Takeaway Monitoring and Observability aren’t tools — they are a mindset. They are about building systems that tell their own stories. With Spring Boot, Micrometer, OpenTelemetry, Prometheus, Loki, Tempo, and Grafana, we have all the pieces to make that story visible.\n",
   "wordCount" : "528",
@@ -190,6 +194,11 @@ Metrics give a numerical insights about system behavior — CPU usage, request l
             <li>
                 <a href="https://madhurtoppo.com/posts" title="Blog">
                     <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/tags" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -301,6 +310,10 @@ make that story visible.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://madhurtoppo.com/tags/cloud/">Cloud</a></li>
+      <li><a href="https://madhurtoppo.com/tags/observability/">Observability</a></li>
+      <li><a href="https://madhurtoppo.com/tags/java/">Java</a></li>
+      <li><a href="https://madhurtoppo.com/tags/spring/">Spring</a></li>
     </ul>
   </footer>
 </article>

@@ -8,6 +8,8 @@ cover:
   caption: "Java Virtual Machine Architecture"
   relative: false
   hidden: false
+tags: ["java", "jvm", "garbage-collection"]
+categories: ["java"]
 ---
 ## A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution
 

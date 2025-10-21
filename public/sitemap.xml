@@ -8,28 +8,49 @@
     <loc>https://madhurtoppo.com/posts/</loc>
     <lastmod>2025-10-17T16:24:36+02:00</lastmod>
   </url><url>
+    <loc>https://madhurtoppo.com/categories/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/cloud/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/categories/cloud-native/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/java/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
     <loc>https://madhurtoppo.com/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/observability/</loc>
     <lastmod>2025-10-17T16:24:36+02:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/posts/cloud-native/observability-and-monitoring/</loc>
     <lastmod>2025-10-17T16:24:36+02:00</lastmod>
   </url><url>
-    <loc>https://madhurtoppo.com/posts/java/jvm-deep-dive/</loc>
+    <loc>https://madhurtoppo.com/tags/spring/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/</loc>
+    <lastmod>2025-10-17T16:24:36+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/garbage-collection/</loc>
     <lastmod>2025-10-13T11:32:09+02:00</lastmod>
   </url><url>
-    <loc>https://madhurtoppo.com/categories/</loc>
-    <lastmod>2024-10-11T10:00:00+00:00</lastmod>
+    <loc>https://madhurtoppo.com/categories/java/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/tags/jvm/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
+  </url><url>
+    <loc>https://madhurtoppo.com/posts/java/jvm-deep-dive/</loc>
+    <lastmod>2025-10-13T11:32:09+02:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/categories/general/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/tags/introduction/</loc>
-    <lastmod>2024-10-11T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://madhurtoppo.com/tags/</loc>
-    <lastmod>2024-10-11T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://madhurtoppo.com/tags/welcome/</loc>
     <lastmod>2024-10-11T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://madhurtoppo.com/search/</loc>

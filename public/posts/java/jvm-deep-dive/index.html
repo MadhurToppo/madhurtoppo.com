@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>JVM Deep Dive | Madhur Toppo</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="java, jvm, garbage-collection">
 <meta name="description" content="A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution
 The Java Virtual Machine (JVM) is at the heart of the Java ecosystem.
 It’s an abstract computing machine that enables Java applications to run
@@ -81,6 +81,9 @@ Source Code → Bytecode: Every Java program begins as source code written in .j
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-10-13T11:32:09+02:00">
     <meta property="article:modified_time" content="2025-10-13T11:32:09+02:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Jvm">
+    <meta property="article:tag" content="Garbage-Collection">
     <meta property="og:image" content="https://madhurtoppo.com/images/jvm-deep-dive.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://madhurtoppo.com/images/jvm-deep-dive.png">
@@ -132,7 +135,7 @@ Compilation Command:">
   "name": "JVM Deep Dive",
   "description": "A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution The Java Virtual Machine (JVM) is at the heart of the Java ecosystem. It’s an abstract computing machine that enables Java applications to run anywhere—without needing platform-specific recompilation. But how does Java code actually go from .java files to running processes? Let’s break down the full lifecycle.\nSource Code → Bytecode: Every Java program begins as source code written in .java files. These files are compiled by the Java Compiler (javac) into bytecode, stored in .class files. Source Code Example: public class HelloWorld { public static void main(String[] args) { System.out.println(\u0026#34;Hello, JVM!\u0026#34;); } } Compilation Command:\n",
   "keywords": [
-    
+    "java", "jvm", "garbage-collection"
   ],
   "articleBody": "A Deep Dive into the Java Virtual Machine (JVM): From Source Code toExecution The Java Virtual Machine (JVM) is at the heart of the Java ecosystem. It’s an abstract computing machine that enables Java applications to run anywhere—without needing platform-specific recompilation. But how does Java code actually go from .java files to running processes? Let’s break down the full lifecycle.\nSource Code → Bytecode: Every Java program begins as source code written in .java files. These files are compiled by the Java Compiler (javac) into bytecode, stored in .class files. Source Code Example: public class HelloWorld { public static void main(String[] args) { System.out.println(\"Hello, JVM!\"); } } Compilation Command:\njavac HelloWorld.java Output: HelloWorld.class containing platform-independent bytecode This bytecode is the intermediate representation of the program — not directly executable by the OS, but readable by the JVM.\nJVM Architecture Overview: The JVM has three main subsystems that handle execution:\nClass Loader Subsystem Runtime Data Areas Execution Engine JVM Class Loader Subsystem: The Class Loader is responsible for dynamically loading Java classes into memory during runtime. It works in three main steps:\nLoading: Reads .class files and brings them into the JVM. Linking: Verifies bytecode for security and correctness, prepares memory for class variables, and resolves symbolic references. Initialization: Executes static initializers (static { } blocks) and assigns static variable values. The JVM uses a delegation hierarchy:\nBootstrap Class Loader – Loads core Java classes (java.lang.*, java.util.*) Extension Class Loader – Loads classes from the extension directories Application Class Loader – Loads classes from the user’s classpath JVM Runtime Data Areas: Once classes are loaded, the JVM allocates memory in several runtime areas:\nMethod Area: Stores class structures, method data, and runtime constant pool. Heap: Allocates memory for objects (managed by Garbage Collector). Java Stack: Holds local variables and partial results for each thread. PC Register: Keeps track of the current instruction being executed. Native Method Stack: Supports native (non-Java) code execution through JNI.\nJVM Execution Engine: The Execution Engine is where bytecode becomes actual machine instructions. It has three major components:\nInterpreter: Reads and executes bytecode line by line. JIT (Just-In-Time) Compiler: Converts frequently executed bytecode (“hot code”) into native machine code to boost performance. Garbage Collector (GC): Automatically manages memory, freeing up unused objects from the heap. Together, the Execution Engine and JIT compiler make the JVM fast and adaptive, optimizing execution during runtime. The Complete Flow:\nSource Code (.java) ↓ Compiler (javac) ↓ Bytecode (.class) ↓ Class Loader Subsystem ↓ Runtime Data Areas ↓ Execution Engine (Interpreter + JIT) ↓ Native Machine Code → Execution Conclusion: The JVM is far more than a runtime—it’s a sophisticated platform that abstracts hardware details, manages memory automatically, and optimizes performance on the fly. By transforming source code into bytecode and executing it efficiently through the class loader and execution engine, the JVM remains one of the most powerful virtualized environments in modern computing. ",
   "wordCount" : "482",
@@ -203,6 +206,11 @@ Compilation Command:">
             <li>
                 <a href="https://madhurtoppo.com/posts" title="Blog">
                     <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/tags" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -329,6 +337,9 @@ computing.</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://madhurtoppo.com/tags/java/">Java</a></li>
+      <li><a href="https://madhurtoppo.com/tags/jvm/">Jvm</a></li>
+      <li><a href="https://madhurtoppo.com/tags/garbage-collection/">Garbage-Collection</a></li>
     </ul>
   </footer>
 </article>

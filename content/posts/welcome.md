@@ -2,7 +2,7 @@
 title: "Welcome to My Blog"
 date: 2024-10-11T10:00:00Z
 draft: false
-tags: ["welcome", "introduction"]
+tags: ["introduction"]
 categories: ["general"]
 description: "A welcome post introducing my blog and what you can expect to find here."
 weight: 1

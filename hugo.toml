@@ -88,10 +88,16 @@ theme = 'hugo-PaperMod'
     weight = 20
 
   [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags"
+    weight = 30
+
+  [[menu.main]]
     identifier = "search"
     name = "Search"
     url = "/search"
-    weight = 30
+    weight = 40
 
 # Outputs for search functionality
 [outputs]
