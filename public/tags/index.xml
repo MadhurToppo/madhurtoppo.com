@@ -6,13 +6,27 @@
     <description>Recent content in Tags on Madhur Toppo</description>
     <generator>Hugo -- 0.151.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Oct 2025 16:24:36 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Oct 2025 15:18:28 +0200</lastBuildDate>
     <atom:link href="https://madhurtoppo.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud</title>
       <link>https://madhurtoppo.com/tags/cloud/</link>
-      <pubDate>Fri, 17 Oct 2025 16:24:36 +0200</pubDate>
+      <pubDate>Tue, 21 Oct 2025 15:18:28 +0200</pubDate>
       <guid>https://madhurtoppo.com/tags/cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://madhurtoppo.com/tags/kubernetes/</link>
+      <pubDate>Tue, 21 Oct 2025 15:18:28 +0200</pubDate>
+      <guid>https://madhurtoppo.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>https://madhurtoppo.com/tags/microservices/</link>
+      <pubDate>Tue, 21 Oct 2025 15:18:28 +0200</pubDate>
+      <guid>https://madhurtoppo.com/tags/microservices/</guid>
       <description></description>
     </item>
     <item>

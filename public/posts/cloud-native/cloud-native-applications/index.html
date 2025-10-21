@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Cloud Native Applications | Madhur Toppo</title>
+<meta name="keywords" content="cloud, microservices, kubernetes">
+<meta name="description" content="The 12 Factors — and Beyond
+Building Cloud Native Applications with Spring Boot involves more than just
+containerization and orchestration. It’s about designing software that thrives
+in dynamic cloud environments — scalable, resilient, observable, and secure.
+Let’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.
+1. One Codebase, One Application
+Every application should have a single codebase tracked in version control (e.g., Git,
+Subversion).
+✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.">
+<meta name="author" content="">
+<link rel="canonical" href="https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://madhurtoppo.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://madhurtoppo.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://madhurtoppo.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://madhurtoppo.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://madhurtoppo.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/">
+  <meta property="og:site_name" content="Madhur Toppo">
+  <meta property="og:title" content="Cloud Native Applications">
+  <meta property="og:description" content="The 12 Factors — and Beyond Building Cloud Native Applications with Spring Boot involves more than just containerization and orchestration. It’s about designing software that thrives in dynamic cloud environments — scalable, resilient, observable, and secure.
+Let’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.
+1. One Codebase, One Application Every application should have a single codebase tracked in version control (e.g., Git, Subversion).
+✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-21T15:18:28+02:00">
+    <meta property="article:modified_time" content="2025-10-21T15:18:28+02:00">
+    <meta property="article:tag" content="Cloud">
+    <meta property="article:tag" content="Microservices">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="og:image" content="https://madhurtoppo.com/images/cloud-native.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://madhurtoppo.com/images/cloud-native.jpg">
+<meta name="twitter:title" content="Cloud Native Applications">
+<meta name="twitter:description" content="The 12 Factors — and Beyond
+Building Cloud Native Applications with Spring Boot involves more than just
+containerization and orchestration. It’s about designing software that thrives
+in dynamic cloud environments — scalable, resilient, observable, and secure.
+Let’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.
+1. One Codebase, One Application
+Every application should have a single codebase tracked in version control (e.g., Git,
+Subversion).
+✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blog Posts",
+      "item": "https://madhurtoppo.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cloud Native Applications",
+      "item": "https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cloud Native Applications",
+  "name": "Cloud Native Applications",
+  "description": "The 12 Factors — and Beyond Building Cloud Native Applications with Spring Boot involves more than just containerization and orchestration. It’s about designing software that thrives in dynamic cloud environments — scalable, resilient, observable, and secure.\nLet’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.\n1. One Codebase, One Application Every application should have a single codebase tracked in version control (e.g., Git, Subversion).\n✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.\n",
+  "keywords": [
+    "cloud", "microservices", "kubernetes"
+  ],
+  "articleBody": "The 12 Factors — and Beyond Building Cloud Native Applications with Spring Boot involves more than just containerization and orchestration. It’s about designing software that thrives in dynamic cloud environments — scalable, resilient, observable, and secure.\nLet’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.\n1. One Codebase, One Application Every application should have a single codebase tracked in version control (e.g., Git, Subversion).\n✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.\ngit init git add . git commit -m \"initial commit\" git push origin main 💡 Tip: Use Git branching strategies (GitFlow or Trunk-based development) for cleaner CI/CD pipelines.\n2. API First Design APIs before implementing business logic. With an API-first approach, teams can develop independently while maintaining strong contracts between services. Spring tools like SpringDoc OpenAPI or Swagger can automatically generate API documentation and contracts.\n@RestController @RequestMapping(\"/api/v1/customers\") public class CustomerController { @GetMapping(\"/{id}\") public ResponseEntity\u003cCustomer\u003e getCustomer(@PathVariable Long id) { return ResponseEntity.ok(new Customer(id, \"Alice\", \"alice@example.com\")); } } org.springdoc springdoc-openapi-starter-webmvc-ui 2.6.0 Access API docs at: http://localhost:8080/swagger-ui.html\n3. Dependency Management Declare and manage dependencies explicitly using a manifest file such as pom.xml (Maven) or build.gradle (Gradle).\norg.springframework.boot spring-boot-starter-web 💡 Use a single build tool and lock dependency versions for reproducible builds.\n4. Design, Build, Release, and Run A Cloud Native app moves through four key stages:\ni. Design: Decide tech stack, dependencies, and architecture.\norg.springframework.boot spring-boot-starter-web ii. Build: Package source code and dependencies into an immutable artifact (JAR/Docker image).\nmvn clean package Dockerfile\nFROM eclipse-temurin:21-jdk COPY target/*.jar app.jar ENTRYPOINT [\"java\",\"-jar\",\"/app.jar\"] Then build the Docker image:\ndocker build -t cloudnative-app:1.0.0 . iii. Release: Tag and push the release image with version info.\ndocker tag cloudnative-app:1.0.0 myrepo/cloudnative-app:1.0.0 docker push myrepo/cloudnative-app:1.0.0 You could store configuration separately in a .env or Kubernetes ConfigMap:\nAPP_ENV=prod DB_URL=jdbc:postgresql://db:5432/demo iv. Run: Run the released image in a controlled environment.\nLocal run:\ndocker run -d -p 8080:8080 --env-file .env myrepo/cloudnative-app:1.0.0 Kubernetes deployment:\napiVersion: apps/v1 kind: Deployment metadata: name: cloudnative-app spec: replicas: 2 template: spec: containers: - name: cloudnative-app image: myrepo/cloudnative-app:1.0.0 envFrom: - configMapRef: name: app-config 💡 CI/CD Integration:\nUse tools like GitHub Actions, Jenkins, or Argo CD to automate these four stages — from building the Docker image to deploying it to your Kubernetes cluster.\n5. Configuration, Credentials, and Code Keep configuration and secrets outside the codebase — preferably in environment variables or a config server.\n# application.properties spring.datasource.url=${DB_URL} spring.datasource.username=${DB_USER} spring.datasource.password=${DB_PASS} Set them in your shell or Kubernetes Secret:\nexport DB_URL=jdbc:postgresql://db:5432/demo export DB_USER=admin export DB_PASS=secret Or use Spring Cloud Config for centralized management.\n6. Logs Applications should write logs to stdout/stderr and not handle storage.\n@Slf4j @RestController public class LogController { @GetMapping(\"/process\") public String process() { log.info(\"Processing request at {}\", LocalDateTime.now()); return \"done\"; } } External systems (e.g., Loki, ELK Stack) aggregate, process, and visualize logs for analysis. Combine with Spring Boot Actuator and Grafana Loki for structured logging.\n🧠 In Docker or Kubernetes, logs can be collected automatically via kubectl logs or Loki.\n7. Disposability Applications must be fast to start and graceful to shut down.\n# application.properties server.shutdown=graceful spring.lifecycle.timeout-per-shutdown-phase=30s @EventListener(ContextClosedEvent.class) public void onShutdown() { log.info(\"Cleaning up before shutdown...\"); } In failure scenarios, new instances should automatically spin up (resilience). Docker and Kubernetes make disposability easy with readiness/liveness probes and auto-scaling.\nlivenessProbe: httpGet: path: /actuator/health/liveness port: 8080 8. Backing Services Treat databases, message brokers, caches, and APIs as attached resources — easily replaceable without code changes.\nExample: swapping MySQL for PostgreSQL or RabbitMQ for Kafka should not require refactoring.\n@Service public class MessageService { private final RabbitTemplate rabbitTemplate; public MessageService(RabbitTemplate rabbitTemplate) { this.rabbitTemplate = rabbitTemplate; } public void sendMessage(String msg) { rabbitTemplate.convertAndSend(\"queue_name\", msg); } } 9. Environment Parity Maintain minimal differences across development, staging, and production. Bridging gaps ensures reliability:\nTime Gap: Faster deployment cycles. People Gap: Developers and Ops share ownership (DevOps). Tools Gap: Same tools and dependencies across environments. Example: Use Docker Compose locally and Kubernetes in production with similar configurations.\n# docker-compose.yml services: app: image: cloudnative-app environment: - SPRING_PROFILES_ACTIVE=dev db: image: postgres 10. Administrative Processes Treat DB migrations, batch jobs, and cron tasks as one-off processes tracked in the same codebase.\njava -jar app.jar --spring.profiles.active=prod \\ --spring.flyway.enabled=true Use Flyway or Liquibase for version-controlled schema migrations.\n-- V1__create_table.sql CREATE TABLE customer (id SERIAL PRIMARY KEY, name VARCHAR(50)); 11. Port Binding Applications should self-contain an embedded server and expose services via a unique port.\nIn Spring Boot:\nserver.port=8080 The app becomes a service that can be consumed by others via port binding.\nAccess at http://localhost:8080\n12. Stateless Processes Adopt a share-nothing architecture — state belongs in databases or caches, not in-memory. This allows horizontal scaling without session loss. Use Spring Session with Redis or Hazelcast for distributed session management.\norg.springframework.session spring-session-data-redis @EnableRedisHttpSession public class SessionConfig { } 13. Concurrency Achieve scalability by running multiple concurrent processes. Leverage JVM thread pools, WebFlux reactive programming, or Kubernetes replicas. Example: Use @Async in Spring or reactive pipelines with Project Reactor.\n@Async public void processTask() { log.info(\"Processing in thread: {}\", Thread.currentThread().getName()); } @EnableAsync @SpringBootApplication public class CloudNativeApp {} 14. Telemetry Cloud Native apps must be observable — monitor metrics, logs, traces, and health.\nio.micrometer micrometer-registry-prometheus Tools:\nPrometheus for metrics Grafana for visualization Loki for logs Tempo or Jaeger for tracing Integrate with Spring Boot Actuator for /metrics, /health, and /prometheus endpoints.\n# application.yml management: endpoints: web: exposure: include: health, metrics, prometheus 15. Authentication \u0026 Authorization Secure APIs and services using OAuth 2.0, OpenID Connect, or JWT tokens.\norg.springframework.boot spring-boot-starter-oauth2-resource-server Use Spring Security or delegate to an API Gateway like Spring Cloud Gateway for centralized security enforcement.\n@Bean SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception { return http .authorizeHttpRequests(auth -\u003e auth .requestMatchers(\"/actuator/**\").permitAll() .anyRequest().authenticated()) .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt) .build(); } 🌩️ Beyond the 12 Factors\nModern Cloud Native development goes further:\nResilience: Circuit breakers, retries, and bulkheads via resilience4j. Observability: Distributed tracing with Spring Cloud Sleuth or Micrometer Tracing. GitOps: Declarative deployments with Argo CD. Service Meshes: Secure and monitor network traffic with Istio or Linkerd. Cloud Native Spring in Action is not just a checklist — it’s a mindset of automation, scalability, and resilience that drives how modern applications are built and operated.\n",
+  "wordCount" : "1043",
+  "inLanguage": "en",
+  "image":"https://madhurtoppo.com/images/cloud-native.jpg","datePublished": "2025-10-21T15:18:28+02:00",
+  "dateModified": "2025-10-21T15:18:28+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Madhur Toppo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://madhurtoppo.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://madhurtoppo.com/" accesskey="h" title="Madhur Toppo (Alt + H)">Madhur Toppo</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://madhurtoppo.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/posts" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://madhurtoppo.com/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Cloud Native Applications
+    </h1>
+    <div class="post-meta"><span title='2025-10-21 15:18:28 +0200 CEST'>October 21, 2025</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="https://madhurtoppo.com/images/cloud-native.jpg" alt="Cloud Native Applications Illustration">
+        <figcaption>Building Cloud Native Applications with Spring Boot</figcaption>
+</figure>
+  <div class="post-content"><h2 id="the-12-factors--and-beyond">The 12 Factors — and Beyond<a hidden class="anchor" aria-hidden="true" href="#the-12-factors--and-beyond">#</a></h2>
+<p>Building Cloud Native Applications with Spring Boot involves more than just
+containerization and orchestration. It’s about designing software that thrives
+in dynamic cloud environments — scalable, resilient, observable, and secure.</p>
+<p>Let’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.</p>
+<h3 id="1-one-codebase-one-application">1. One Codebase, One Application<a hidden class="anchor" aria-hidden="true" href="#1-one-codebase-one-application">#</a></h3>
+<p>Every application should have a single codebase tracked in version control (e.g., Git,
+Subversion).</p>
+<p>✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>💡 Tip: Use Git branching strategies (GitFlow or Trunk-based development) for cleaner CI/CD pipelines.</p>
+<h3 id="2-api-first">2. API First<a hidden class="anchor" aria-hidden="true" href="#2-api-first">#</a></h3>
+<p>Design APIs before implementing business logic. With an API-first approach,
+teams can develop independently while maintaining strong contracts between
+services. Spring tools like SpringDoc OpenAPI or Swagger can automatically
+generate API documentation and contracts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/api/v1/customers&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomerController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Customer<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCustomer</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(<span style="color:#66d9ef">new</span> Customer(id, <span style="color:#e6db74">&#34;Alice&#34;</span>, <span style="color:#e6db74">&#34;alice@example.com&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- pom.xml --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springdoc<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>springdoc-openapi-starter-webmvc-ui<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>2.6.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>Access API docs at: <code>http://localhost:8080/swagger-ui.html</code></p>
+<h3 id="3-dependency-management">3. Dependency Management<a hidden class="anchor" aria-hidden="true" href="#3-dependency-management">#</a></h3>
+<p>Declare and manage dependencies explicitly using a manifest file such as <code>pom.xml</code> (Maven) or <code>build.gradle</code> (Gradle).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- pom.xml --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>💡 Use a single build tool and lock dependency versions for reproducible builds.</p>
+<h3 id="4-design-build-release-and-run">4. Design, Build, Release, and Run<a hidden class="anchor" aria-hidden="true" href="#4-design-build-release-and-run">#</a></h3>
+<p>A Cloud Native app moves through four key stages:</p>
+<p><strong>i. Design:</strong> Decide tech stack, dependencies, and architecture.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><p><strong>ii. Build:</strong> Package source code and dependencies into an immutable artifact (JAR/Docker image).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn clean package
+</span></span></code></pre></div><p><code>Dockerfile</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">eclipse-temurin:21-jdk</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> target/*.jar app.jar<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;java&#34;</span>,<span style="color:#e6db74">&#34;-jar&#34;</span>,<span style="color:#e6db74">&#34;/app.jar&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Then build the Docker image:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t cloudnative-app:1.0.0 .
+</span></span></code></pre></div><p><strong>iii. Release:</strong> Tag and push the release image with version info.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker tag cloudnative-app:1.0.0 myrepo/cloudnative-app:1.0.0
+</span></span><span style="display:flex;"><span>docker push myrepo/cloudnative-app:1.0.0
+</span></span></code></pre></div><p>You could store configuration separately in a <code>.env</code> or Kubernetes ConfigMap:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>APP_ENV<span style="color:#f92672">=</span>prod
+</span></span><span style="display:flex;"><span>DB_URL<span style="color:#f92672">=</span>jdbc:postgresql://db:5432/demo
+</span></span></code></pre></div><p><strong>iv. Run:</strong> Run the released image in a controlled environment.</p>
+<p>Local run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d -p 8080:8080 --env-file .env myrepo/cloudnative-app:1.0.0
+</span></span></code></pre></div><p>Kubernetes deployment:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cloudnative-app</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cloudnative-app</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">myrepo/cloudnative-app:1.0.0</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">envFrom</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">configMapRef</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">name</span>: <span style="color:#ae81ff">app-config</span>
+</span></span></code></pre></div><p>💡 <strong>CI/CD Integration:</strong><br>
+Use tools like <strong>GitHub Actions</strong>, <strong>Jenkins</strong>, or <strong>Argo CD</strong> to automate these four stages — from building the Docker image to deploying it to your Kubernetes cluster.</p>
+<h3 id="5-configuration-credentials-and-code">5. Configuration, Credentials, and Code<a hidden class="anchor" aria-hidden="true" href="#5-configuration-credentials-and-code">#</a></h3>
+<p>Keep configuration and secrets outside the codebase — preferably in environment
+variables or a config server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># application.properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.url</span><span style="color:#f92672">=</span><span style="color:#e6db74">${DB_URL}</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.username</span><span style="color:#f92672">=</span><span style="color:#e6db74">${DB_USER}</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.password</span><span style="color:#f92672">=</span><span style="color:#e6db74">${DB_PASS}</span>
+</span></span></code></pre></div><p>Set them in your shell or Kubernetes Secret:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export DB_URL<span style="color:#f92672">=</span>jdbc:postgresql://db:5432/demo
+</span></span><span style="display:flex;"><span>export DB_USER<span style="color:#f92672">=</span>admin
+</span></span><span style="display:flex;"><span>export DB_PASS<span style="color:#f92672">=</span>secret
+</span></span></code></pre></div><p>Or use <strong>Spring Cloud Config</strong> for centralized management.</p>
+<h3 id="6-logs">6. Logs<a hidden class="anchor" aria-hidden="true" href="#6-logs">#</a></h3>
+<p>Applications should write logs to stdout/stderr and not handle storage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Slf4j</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/process&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">process</span>() {
+</span></span><span style="display:flex;"><span>        log.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Processing request at {}&#34;</span>, LocalDateTime.<span style="color:#a6e22e">now</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;done&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>External systems (e.g., Loki, ELK Stack) aggregate, process, and visualize logs
+for analysis. Combine with Spring Boot Actuator and Grafana Loki for structured
+logging.</p>
+<p>🧠 In Docker or Kubernetes, logs can be collected automatically via <code>kubectl logs</code> or Loki.</p>
+<h3 id="7-disposability">7. Disposability<a hidden class="anchor" aria-hidden="true" href="#7-disposability">#</a></h3>
+<p>Applications must be fast to start and graceful to shut down.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># application.properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.shutdown</span><span style="color:#f92672">=</span><span style="color:#e6db74">graceful</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.lifecycle.timeout-per-shutdown-phase</span><span style="color:#f92672">=</span><span style="color:#e6db74">30s</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EventListener</span>(ContextClosedEvent.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onShutdown</span>() {
+</span></span><span style="display:flex;"><span>    log.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Cleaning up before shutdown...&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In failure scenarios, new instances should automatically spin up (resilience).
+Docker and Kubernetes make disposability easy with readiness/liveness probes and
+auto-scaling.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">livenessProbe</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">httpGet</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/actuator/health/liveness</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
+</span></span></code></pre></div><h3 id="8-backing-services">8. Backing Services<a hidden class="anchor" aria-hidden="true" href="#8-backing-services">#</a></h3>
+<p>Treat databases, message brokers, caches, and APIs as attached resources —
+easily replaceable without code changes.</p>
+<p>Example: swapping MySQL for PostgreSQL or RabbitMQ for Kafka should not require
+refactoring.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MessageService</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RabbitTemplate rabbitTemplate;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MessageService</span>(RabbitTemplate rabbitTemplate) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rabbitTemplate</span> <span style="color:#f92672">=</span> rabbitTemplate;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendMessage</span>(String msg) {
+</span></span><span style="display:flex;"><span>        rabbitTemplate.<span style="color:#a6e22e">convertAndSend</span>(<span style="color:#e6db74">&#34;queue_name&#34;</span>, msg);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="9-environment-parity">9. Environment Parity<a hidden class="anchor" aria-hidden="true" href="#9-environment-parity">#</a></h3>
+<p>Maintain minimal differences across development, staging, and production.
+Bridging gaps ensures reliability:</p>
+<ul>
+<li>Time Gap: Faster deployment cycles.</li>
+<li>People Gap: Developers and Ops share ownership (DevOps).</li>
+<li>Tools Gap: Same tools and dependencies across environments.</li>
+</ul>
+<p>Example: Use Docker Compose locally and Kubernetes in production with similar configurations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">app</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cloudnative-app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SPRING_PROFILES_ACTIVE=dev</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres</span>
+</span></span></code></pre></div><h3 id="10-administrative-processes">10. Administrative Processes<a hidden class="anchor" aria-hidden="true" href="#10-administrative-processes">#</a></h3>
+<p>Treat DB migrations, batch jobs, and cron tasks as one-off processes tracked in
+the same codebase.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -jar app.jar --spring.profiles.active<span style="color:#f92672">=</span>prod <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --spring.flyway.enabled<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><p>Use Flyway or Liquibase for version-controlled schema migrations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- V1__create_table.sql
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> customer (id SERIAL <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>, name VARCHAR(<span style="color:#ae81ff">50</span>));
+</span></span></code></pre></div><h3 id="11-port-binding">11. Port Binding<a hidden class="anchor" aria-hidden="true" href="#11-port-binding">#</a></h3>
+<p>Applications should self-contain an embedded server and expose services via a
+unique port.</p>
+<p>In Spring Boot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">server.port</span><span style="color:#f92672">=</span><span style="color:#e6db74">8080</span>
+</span></span></code></pre></div><p>The app becomes a service that can be consumed by others via port binding.</p>
+<p>Access at <code>http://localhost:8080</code></p>
+<h3 id="12-stateless-processes">12. Stateless Processes<a hidden class="anchor" aria-hidden="true" href="#12-stateless-processes">#</a></h3>
+<p>Adopt a share-nothing architecture — state belongs in databases or caches, not
+in-memory. This allows horizontal scaling without session loss. Use Spring
+Session with Redis or Hazelcast for distributed session management.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.session<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-session-data-redis<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EnableRedisHttpSession</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SessionConfig</span> { }
+</span></span></code></pre></div><h3 id="13-concurrency">13. Concurrency<a hidden class="anchor" aria-hidden="true" href="#13-concurrency">#</a></h3>
+<p>Achieve scalability by running multiple concurrent processes. Leverage JVM
+thread pools, WebFlux reactive programming, or Kubernetes replicas. Example: Use
+<code>@Async</code> in Spring or reactive pipelines with Project Reactor.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Async</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processTask</span>() {
+</span></span><span style="display:flex;"><span>    log.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Processing in thread: {}&#34;</span>, Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@EnableAsync</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CloudNativeApp</span> {}
+</span></span></code></pre></div><h3 id="14-telemetry">14. Telemetry<a hidden class="anchor" aria-hidden="true" href="#14-telemetry">#</a></h3>
+<p>Cloud Native apps must be observable — monitor metrics, logs, traces, and health.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>io.micrometer<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>micrometer-registry-prometheus<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p><strong>Tools:</strong></p>
+<ul>
+<li>Prometheus for metrics</li>
+<li>Grafana for visualization</li>
+<li>Loki for logs</li>
+<li>Tempo or Jaeger for tracing</li>
+</ul>
+<p>Integrate with Spring Boot Actuator for /metrics, /health, and /prometheus endpoints.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># application.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">management</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">endpoints</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">web</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">exposure</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">include</span>: <span style="color:#ae81ff">health, metrics, prometheus</span>
+</span></span></code></pre></div><h3 id="15-authentication--authorization">15. Authentication &amp; Authorization<a hidden class="anchor" aria-hidden="true" href="#15-authentication--authorization">#</a></h3>
+<p>Secure APIs and services using OAuth 2.0, OpenID Connect, or JWT tokens.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-oauth2-resource-server<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>Use Spring Security or delegate to an API Gateway like Spring Cloud Gateway for centralized security enforcement.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>SecurityFilterChain <span style="color:#a6e22e">securityFilterChain</span>(HttpSecurity http) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> http
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">authorizeHttpRequests</span>(auth <span style="color:#f92672">-&gt;</span> auth
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">requestMatchers</span>(<span style="color:#e6db74">&#34;/actuator/**&#34;</span>).<span style="color:#a6e22e">permitAll</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">anyRequest</span>().<span style="color:#a6e22e">authenticated</span>())
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">oauth2ResourceServer</span>(OAuth2ResourceServerConfigurer::jwt)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>🌩️ Beyond the 12 Factors</strong></p>
+<p>Modern Cloud Native development goes further:</p>
+<ul>
+<li>Resilience: Circuit breakers, retries, and bulkheads via resilience4j.</li>
+<li>Observability: Distributed tracing with Spring Cloud Sleuth or Micrometer Tracing.</li>
+<li>GitOps: Declarative deployments with Argo CD.</li>
+<li>Service Meshes: Secure and monitor network traffic with Istio or Linkerd.</li>
+</ul>
+<p>Cloud Native Spring in Action is not just a checklist — it’s a mindset of automation, scalability, and resilience that drives how modern applications are built and operated.</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://madhurtoppo.com/tags/cloud/">Cloud</a></li>
+      <li><a href="https://madhurtoppo.com/tags/microservices/">Microservices</a></li>
+      <li><a href="https://madhurtoppo.com/tags/kubernetes/">Kubernetes</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://madhurtoppo.com/">Madhur Toppo</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

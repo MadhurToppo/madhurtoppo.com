@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Microservices on Madhur Toppo</title>
+    <link>https://madhurtoppo.com/tags/microservices/</link>
+    <description>Recent content in Microservices on Madhur Toppo</description>
+    <generator>Hugo -- 0.151.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Oct 2025 15:18:28 +0200</lastBuildDate>
+    <atom:link href="https://madhurtoppo.com/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Applications</title>
+      <link>https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/</link>
+      <pubDate>Tue, 21 Oct 2025 15:18:28 +0200</pubDate>
+      <guid>https://madhurtoppo.com/posts/cloud-native/cloud-native-applications/</guid>
+      <description>&lt;h2 id=&#34;the-12-factors--and-beyond&#34;&gt;The 12 Factors — and Beyond&lt;/h2&gt;
+&lt;p&gt;Building Cloud Native Applications with Spring Boot involves more than just
+containerization and orchestration. It’s about designing software that thrives
+in dynamic cloud environments — scalable, resilient, observable, and secure.&lt;/p&gt;
+&lt;p&gt;Let’s explore the 12 Factors and Beyond, adapted for modern Spring-based systems.&lt;/p&gt;
+&lt;h3 id=&#34;1-one-codebase-one-application&#34;&gt;1. One Codebase, One Application&lt;/h3&gt;
+&lt;p&gt;Every application should have a single codebase tracked in version control (e.g., Git,
+Subversion).&lt;/p&gt;
+&lt;p&gt;✅ Each environment (dev, staging, prod) deploys from the same source, not different branches. Keeping codebase in a common source (main) for all environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
